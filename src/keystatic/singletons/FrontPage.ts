@@ -3,9 +3,9 @@ import { fields } from '@keystatic/core';
 export const FrontPageSchema: any = 
 {
   label: 'Home Page',
-  slugField: '',
+  slugField: '*',
   format: { contentField: 'body' },
-  path: 'src/content/*',
+  path: 'src/content/pages/frontPage',
   schema: {
     title: fields.slug({ name: { label: 'Home' } }),
     publishedDate: fields.date({ label: 'Published Date' }),

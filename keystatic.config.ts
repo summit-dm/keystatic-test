@@ -6,12 +6,12 @@ import { FrontPageSchema } from './src/keystatic/singletons/FrontPage';
 // console.log(PostsSchema)
 export default config({
   storage: {
-    // kind: 'local',
-    kind: 'github',
-    repo: {
-      owner: 'summit-dm',
-      name: 'keystatic-test',
-    }
+    kind: 'local',
+    // kind: 'github',
+    // repo: {
+    //   owner: 'summit-dm',
+    //   name: 'keystatic-test',
+    // }
   },
   ui: {
     brand: { 
@@ -25,8 +25,8 @@ export default config({
       // },
     },
     navigation: {
-      'Content': ['frontPage', 'posts'],
-      'Settings': ['settings'],
+      'Content': ['posts'],
+      'Settings': ['frontPage','settings'],
     },
   },
   collections: {
@@ -34,7 +34,7 @@ export default config({
   },
   singletons: {
     settings: singleton(SettingsSchema),
-    // frontPage: singleton(FrontPageSchema),
+    frontPage: singleton(FrontPageSchema),
   }
 });
 

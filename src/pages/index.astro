@@ -1,8 +1,13 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, getEntry } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 
-const posts = await getCollection('posts');
+const page = await getEntry('pages', 'frontpage');
+const { Content } = await page.render()
+const pageJSON = JSON.stringify(page);
+
+const posts: any = await getCollection('posts');
+console.log(Content)
 ---
 
 <Layout title="Keystatic & Astro's Content Collections">
@@ -25,5 +30,7 @@ const posts = await getCollection('posts');
         ))
       }
     </ul>
+    <Fragment set:html={pageJSON} />
+    <Content />
   </div>
 </Layout>
