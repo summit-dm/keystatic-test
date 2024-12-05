@@ -34,7 +34,7 @@ export default config({
   },
   singletons: {
     settings: singleton(SettingsSchema),
-    frontPage: singleton(FrontPageSchema),
+    // frontPage: singleton(FrontPageSchema),
   }
 });
 
