@@ -2,10 +2,15 @@ import { config, fields, collection, singleton } from '@keystatic/core';
 import { PostsSchema } from './src/keystatic/collections/Posts';
 import { SettingsSchema } from './src/keystatic/singletons/Settings';
 
-console.log(PostsSchema)
+// console.log(PostsSchema)
 export default config({
   storage: {
-    kind: 'local',
+    // kind: 'local',
+    kind: 'github',
+    repo: {
+      owner: 'summit-dm',
+      name: 'keystatic-test',
+    }
   },
   ui: {
     brand: { 
