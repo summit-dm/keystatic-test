@@ -1,6 +1,7 @@
 import { config, fields, collection, singleton } from '@keystatic/core';
 import { PostsSchema } from './src/keystatic/collections/Posts';
 import { SettingsSchema } from './src/keystatic/singletons/Settings';
+import { FrontPageSchema } from './src/keystatic/singletons/FrontPage';
 
 // console.log(PostsSchema)
 export default config({
@@ -24,7 +25,7 @@ export default config({
       // },
     },
     navigation: {
-      'Content': ['posts'],
+      'Content': ['frontPage', 'posts'],
       'Settings': ['settings'],
     },
   },
@@ -33,6 +34,7 @@ export default config({
   },
   singletons: {
     settings: singleton(SettingsSchema),
+    frontPage: singleton(FrontPageSchema),
   }
 });
 
