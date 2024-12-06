@@ -1,13 +1,23 @@
 ---
 import { getCollection, getEntry } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
+import { GitReader } from '../lib/renderAPI';
+import { DocumentRenderer } from '@keystatic/core/renderer';
+import { nan } from 'astro:schema';
 
-const page = await getEntry('pages', 'frontpage');
-const { Content } = await page.render()
-const pageJSON = JSON.stringify(page);
+
+// Get page data through GitHub read API
+// const data: any = await GitReader.singletons.frontPage.read();
+// const dataRender = await data.content();
+// console.log("Git-> ", dataRender.node)
 
 const posts: any = await getCollection('posts');
-console.log(Content)
+
+// get page data with Astro (local files on build - content collection)
+const page = await getEntry('pages', 'frontpage');
+const { Content } = await page.render();
+const pageJSON = JSON.stringify(page);
+// console.log(page)
 ---
 
 <Layout title="Keystatic & Astro's Content Collections">
@@ -23,7 +33,7 @@ console.log(Content)
     <h2>Posts</h2>
     <ul>
       {
-        posts.map(post => (
+        posts.map((post: any) => (
           <li>
             <a href={`/posts/${post.slug}`}>{post.data.title}</a>
           </li>

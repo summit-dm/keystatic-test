@@ -4,11 +4,11 @@ export const FrontPageSchema: any =
 {
   label: 'Home Page',
   slugField: '*',
-  format: { contentField: 'body' },
+  format: { contentField: 'content' },
   path: 'src/content/pages/frontPage',
   schema: {
     title: fields.slug({ name: { label: 'Home' } }),
     publishedDate: fields.date({ label: 'Published Date' }),
-    body: fields.markdoc({ label: 'Body' })
+    content: fields.markdoc({ label: 'Body' })
   }
 }
